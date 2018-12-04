@@ -10,7 +10,7 @@ This README outlines the details of collaborating on this Ember addon.
 
 ## Usage
 
-* Add `{{ember-scroll-to-bottom}}` at top of your page
+* Add `{{scroll-to-bottom}}` at top of your page
 
 ## Running
 
