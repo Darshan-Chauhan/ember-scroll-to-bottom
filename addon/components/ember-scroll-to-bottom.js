@@ -7,7 +7,7 @@ export default Ember.Component.extend({
     this._super(...arguments);
     var _this = this;
     var storageHandler = function () {
-     if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+     if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight - 2)) {
         this.set("showScrollIcon", false);
       } else {
         this.set("showScrollIcon", true);
