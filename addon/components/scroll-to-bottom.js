@@ -19,7 +19,10 @@ export default Ember.Component.extend({
   },
 
   click() {
-    var finaldestination = document.querySelector("body").scrollHeight;
-    window.scrollTo({ top: finaldestination, behavior: 'smooth' });
+    let body = document.body;
+    let html = document.documentElement;
+    let height = Math.max( body.scrollHeight, body.offsetHeight,
+                  html.clientHeight, html.scrollHeight, html.offsetHeight );
+    window.scrollTo({ top: height, behavior: 'smooth' });
   }
 });
