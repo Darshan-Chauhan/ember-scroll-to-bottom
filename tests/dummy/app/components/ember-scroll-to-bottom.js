@@ -3,10 +3,10 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   showScrollIcon: true,
 
-  didRender() {
+  init() {
     this._super(...arguments);
     var _this = this;
-    var storageHandler = function () {
+    var storageHandler = function (this) {
      if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
         this.set("showScrollIcon", false);
       } else {
@@ -14,7 +14,7 @@ export default Ember.Component.extend({
       }
     };
     window.addEventListener("scroll", function() {
-      storageHandler.call(_this);
+      storageHandler(_this);
     }, false);
   },
 
