@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   showScrollIcon: true,
 
-  init() {
+  didRender() {
     this._super(...arguments);
     var _this = this;
     var storageHandler = function () {
@@ -18,7 +18,7 @@ export default Ember.Component.extend({
     }, false);
   },
 
-  click(element) {
+  click() {
     var finaldestination = document.querySelector("body").scrollHeight;
     window.scrollTo({ top: finaldestination, behavior: 'smooth' });
   }

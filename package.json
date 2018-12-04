@@ -1,7 +1,7 @@
 {
   "name": "ember-scroll-to-bottom",
-  "version": "1.0.2",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "1.0.3",
+  "description": "Provides an arrow icon with smooth scrolling behaviour to scroll to the bottom of the page.",
   "keywords": [
     "ember-addon"
   ],
