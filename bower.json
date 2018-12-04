@@ -1,0 +1,6 @@
+{
+  "name": "ember-scroll-to-bottom",
+  "dependencies": {
+    "font-awesome": "~4.7.0"
+  }
+}
