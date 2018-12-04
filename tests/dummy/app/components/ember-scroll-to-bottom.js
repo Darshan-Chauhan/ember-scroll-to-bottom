@@ -6,20 +6,27 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     var _this = this;
-    var storageHandler = function (this) {
-     if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
-        this.set("showScrollIcon", false);
+    var scrollHandler = function (object) {
+     if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight - 2)) {
+        object.set("showScrollIcon", false);
       } else {
-        this.set("showScrollIcon", true);
+        object.set("showScrollIcon", true);
       }
     };
     window.addEventListener("scroll", function() {
-      storageHandler(_this);
+      scrollHandler(_this);
     }, false);
   },
 
   click() {
     var finaldestination = document.querySelector("body").scrollHeight;
     window.scrollTo({ top: finaldestination, behavior: 'smooth' });
+  },
+
+  actions: {
+    scrollToBottom() {
+      var finaldestination = document.querySelector("body").scrollHeight;
+      window.scrollTo({ top: finaldestination, behavior: 'smooth' });
+    }
   }
 });

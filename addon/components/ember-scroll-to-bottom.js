@@ -6,11 +6,11 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     var _this = this;
-    var scrollHandler = function (this) {
+    var scrollHandler = function (object) {
      if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight - 2)) {
-        this.set("showScrollIcon", false);
+        object.set("showScrollIcon", false);
       } else {
-        this.set("showScrollIcon", true);
+        object.set("showScrollIcon", true);
       }
     };
     window.addEventListener("scroll", function() {
@@ -21,5 +21,12 @@ export default Ember.Component.extend({
   click() {
     var finaldestination = document.querySelector("body").scrollHeight;
     window.scrollTo({ top: finaldestination, behavior: 'smooth' });
+  },
+
+  actions: {
+    scrollToBottom() {
+      var finaldestination = document.querySelector("body").scrollHeight;
+      window.scrollTo({ top: finaldestination, behavior: 'smooth' });
+    }
   }
 });
