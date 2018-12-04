@@ -21,12 +21,5 @@ export default Ember.Component.extend({
   click() {
     var finaldestination = document.querySelector("body").scrollHeight;
     window.scrollTo({ top: finaldestination, behavior: 'smooth' });
-  },
-
-  actions: {
-    scrollToBottom() {
-      var finaldestination = document.querySelector("body").scrollHeight;
-      window.scrollTo({ top: finaldestination, behavior: 'smooth' });
-    }
   }
 });
