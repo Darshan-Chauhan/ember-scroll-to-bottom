@@ -35,15 +35,29 @@ export default Ember.Component.extend({
   },
 
   handleScrollArrow() {
+    const customScrollElement= this.get("customScrollElement");
     const currentScrollPosition = window.innerHeight + window.pageYOffset;
     const documentScrollHeight = document.body.offsetHeight + 1;
-    if (currentScrollPosition >= documentScrollHeight) {
-      if(!this.isDestroyed) {
-        this.set("showScrollIcon", false);
+    if(customScrollElement) {
+      if(Ember.$(customScrollElement).scrollTop() >= (Ember.$(customScrollElement).prop("scrollHeight") - Ember.$(customScrollElement).prop("offsetHeight"))) {
+        if(!this.isDestroyed) {
+          this.set("showScrollIcon", false);
+        } else {
+          if(!this.isDestroyed) {
+            this.set("showScrollIcon", true);
+          }
+        }
       }
+
     } else {
-      if(!this.isDestroyed) {
-        this.set("showScrollIcon", true);
+      if (currentScrollPosition >= documentScrollHeight) {
+        if(!this.isDestroyed) {
+          this.set("showScrollIcon", false);
+        }
+      } else {
+        if(!this.isDestroyed) {
+          this.set("showScrollIcon", true);
+        }
       }
     }
   },
