@@ -19,9 +19,9 @@ export default Ember.Component.extend({
 
   handleScrollArrow(currentScrollPosition, documentScrollHeight) {
     if (currentScrollPosition >= documentScrollHeight) {
-      object.set("showScrollIcon", false);
+      this.set("showScrollIcon", false);
     } else {
-      object.set("showScrollIcon", true);
+      this.set("showScrollIcon", true);
     }
   },
 
