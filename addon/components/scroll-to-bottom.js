@@ -36,7 +36,7 @@ export default Ember.Component.extend({
 
   handleScrollArrow() {
     const currentScrollPosition = window.innerHeight + window.pageYOffset;
-    const documentScrollHeight = document.body.offsetHeight - 1;
+    const documentScrollHeight = document.body.offsetHeight + 1;
     if (currentScrollPosition >= documentScrollHeight) {
       if(!this.isDestroyed) {
         this.set("showScrollIcon", false);
