@@ -46,13 +46,12 @@ export default Ember.Component.extend({
       if((Ember.$(customScrollElement).scrollTop() + 2) >= (Ember.$(customScrollElement).prop("scrollHeight") - Ember.$(customScrollElement).prop("offsetHeight"))) {
         if(!this.isDestroyed) {
           this.set("showScrollIcon", false);
-        } else {
-          if(!this.isDestroyed) {
-            this.set("showScrollIcon", true);
-          }
+        }
+      } else {
+        if(!this.isDestroyed) {
+          this.set("showScrollIcon", true);
         }
       }
-
     } else {
       if (currentScrollPosition >= documentScrollHeight) {
         if(!this.isDestroyed) {
