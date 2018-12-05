@@ -6,16 +6,23 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     var _this = this;
+    const currentScrollPosition = window.innerHeight + window.pageYOffset;
+    const documentScrollHeight = document.body.offsetHeight + 2;
+    _this.handleScrollArrow(currentScrollPosition, documentScrollHeight);
     var scrollHandler = function (object) {
-     if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight - 2)) {
-        object.set("showScrollIcon", false);
-      } else {
-        object.set("showScrollIcon", true);
-      }
+      object.handleScrollArrow(currentScrollPosition, documentScrollHeight);
     };
     window.addEventListener("scroll", function() {
       scrollHandler(_this);
     }, false);
+  },
+
+  handleScrollArrow(currentScrollPosition, documentScrollHeight) {
+    if (currentScrollPosition >= documentScrollHeight) {
+      object.set("showScrollIcon", false);
+    } else {
+      object.set("showScrollIcon", true);
+    }
   },
 
   click() {
@@ -24,5 +31,9 @@ export default Ember.Component.extend({
     let height = Math.max( body.scrollHeight, body.offsetHeight,
                   html.clientHeight, html.scrollHeight, html.offsetHeight );
     window.scrollTo({ top: height, behavior: 'smooth' });
+  },
+
+  willDestroyElement() {
+    this.destroy();
   }
 });
