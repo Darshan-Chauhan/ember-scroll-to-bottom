@@ -36,12 +36,15 @@ export default Ember.Component.extend({
 
   handleScrollArrow() {
     const currentScrollPosition = window.innerHeight + window.pageYOffset;
-    //2 is added as fix on Mac
-    const documentScrollHeight = document.body.offsetHeight + 2;
+    const documentScrollHeight = document.body.offsetHeight;
     if (currentScrollPosition >= documentScrollHeight) {
-      this.set("showScrollIcon", false);
+      if(!this.isDestroyed) {
+        this.set("showScrollIcon", false);
+      }
     } else {
-      this.set("showScrollIcon", true);
+      if(!this.isDestroyed) {
+        this.set("showScrollIcon", true);
+      }
     }
   },
 
@@ -49,7 +52,11 @@ export default Ember.Component.extend({
     const customScrollElement = this.get("customScrollElement");
     const _this = this;
     if(customScrollElement) {
-      Ember.$(customScrollElement).animate({ scrollTop: Ember.$(customScrollElement).prop("scrollHeight")}, 1000, function() { _this.set("showScrollIcon", false); });
+      Ember.$(customScrollElement).animate(
+        { scrollTop: Ember.$(customScrollElement).prop("scrollHeight")},
+        1000,
+        function() { if(!_this.isDestroyed) { _this.set("showScrollIcon", false); }
+      });
     } else {
       let body = document.body;
       let html = document.documentElement;
