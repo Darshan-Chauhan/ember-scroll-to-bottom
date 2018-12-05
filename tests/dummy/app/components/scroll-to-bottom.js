@@ -5,6 +5,10 @@ export default Ember.Component.extend({
   customClass: null,
   customScrollElement: null,
 
+  init() {
+
+  },
+
   didRender() {
     this._super(...arguments);
     var _this = this;
@@ -20,9 +24,13 @@ export default Ember.Component.extend({
     _this.handleScrollArrow();
 
 
-    //Scroll handling on particular element
+
     if(customScrollElement) {
-      // Click component event will handle scrolling
+      //Scroll handling on particular element
+      Ember.$(customScrollElement).on("scroll", function() {
+        _this.handleScrollArrow();
+      });
+
     } else {
       //Event handling on window scroll
       var scrollHandler = function (object) {
