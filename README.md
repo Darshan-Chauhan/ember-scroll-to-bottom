@@ -12,6 +12,15 @@ This README outlines the details of collaborating on this Ember addon.
 
 * Add `{{scroll-to-bottom}}` at top of your page
 
+* To do custom styling pass class name to `customClass` attribute
+* For example `{{scroll-to-bottom customClass="custom-styling"}}`
+
+* To add scroll to particular element, pass id or class of the element to `customScrollElement` attribute
+* For example  `{{scroll-to-bottom customScrollElement="#element-id"}}`
+
+* You can also combine custom attributes like this
+* `{{scroll-to-bottom customClass="custom-styling" customScrollElement="#element-id"}}`
+
 ## Running
 
 * `ember serve`
