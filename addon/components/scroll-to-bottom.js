@@ -5,10 +5,6 @@ export default Ember.Component.extend({
   customClass: null,
   customScrollElement: null,
 
-  init() {
-
-  },
-
   didRender() {
     this._super(...arguments);
     var _this = this;
