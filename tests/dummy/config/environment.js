@@ -44,7 +44,18 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    let consoleHolder = console;
+    function debug(enable) {
+      if (!enable) {
+        console = {};
+        let consoleKeys = Object.keys(console);
+        consoleKeys.forEach(function(key){
+            console[key] = function(){};
+        })
+      } else {
+        console = consoleHolder;
+      }
+    }
   }
 
   return ENV;
