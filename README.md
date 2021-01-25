@@ -2,6 +2,9 @@
 
 This README outlines the details of collaborating on this Ember addon.
 
+## This addon is no longer actively maintained and is deprecated. Please contact me if you want to take the ownership of the addon, upgrade and maintain it.
+
+
 ## Installation
 
 * `git clone <repository-url>` this repository
