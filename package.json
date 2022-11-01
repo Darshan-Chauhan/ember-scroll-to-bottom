@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^6.3.0",
-    "ember-cli-sass": "5.5.2"
+    "ember-cli-sass": "11.0.1"
   },
   "devDependencies": {
     "@fortawesome/ember-fontawesome": "^0.1.9",
